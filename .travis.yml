@@ -4,6 +4,7 @@ go:
   - 1.14.x
 
 before_install:
+  - cd backend
   - go mod download
 
 script:

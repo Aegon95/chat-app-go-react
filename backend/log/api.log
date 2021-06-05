@@ -1,0 +1,4 @@
+::1 - - [05/Jun/2021:17:04:13 +0530] "GET /api/users HTTP/1.1 200 78.9068ms " " insomnia/2021.3.0" " "
+::1 - - [05/Jun/2021:17:05:12 +0530] "GET /api/users HTTP/1.1 200 37.5564ms " " insomnia/2021.3.0" " "
+::1 - - [05/Jun/2021:17:05:15 +0530] "GET /api/users HTTP/1.1 200 35.7973ms " " insomnia/2021.3.0" " "
+::1 - - [05/Jun/2021:17:05:15 +0530] "GET /api/users HTTP/1.1 200 40.2328ms " " insomnia/2021.3.0" " "
