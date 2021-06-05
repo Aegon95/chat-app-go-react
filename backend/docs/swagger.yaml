@@ -1,0 +1,100 @@
+openapi: 3.0.1
+info:
+  title: brochat
+  description: API REST in Golang with Gin Framework
+  version: "1.0"
+servers:
+- url: /
+paths:
+  /api/users:
+    get:
+      summary: Retrieves users based on query
+      description: Get Users
+      parameters:
+      - name: username
+        in: query
+        description: Username
+        schema:
+          type: string
+      - name: firstname
+        in: query
+        description: Firstname
+        schema:
+          type: string
+      - name: lastname
+        in: query
+        description: Lastname
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/users.User'
+      security:
+      - bearerAuth: []
+  /api/users/{id}:
+    get:
+      summary: Retrieves user based on given ID
+      description: get User by ID
+      parameters:
+      - name: id
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users.User'
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    users.User:
+      type: object
+      properties:
+        created_at:
+          type: string
+        firstname:
+          type: string
+        hash:
+          type: string
+        id:
+          type: integer
+        lastname:
+          type: string
+        role:
+          $ref: '#/components/schemas/users.UserRole'
+        updated_at:
+          type: string
+        username:
+          type: string
+    users.UserRole:
+      type: object
+      properties:
+        created_at:
+          type: string
+        id:
+          type: integer
+        role_name:
+          type: string
+        updated_at:
+          type: string
+        user_id:
+          type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
